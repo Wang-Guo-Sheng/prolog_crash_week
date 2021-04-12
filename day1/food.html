@@ -1,0 +1,14 @@
+<div class="highlight"><pre><span></span><span class="nf">food_type</span><span class="p">(</span><span class="s s-Atom">velveeta</span><span class="p">,</span> <span class="s s-Atom">cheese</span><span class="p">).</span>
+<span class="nf">food_type</span><span class="p">(</span><span class="s s-Atom">ritz</span><span class="p">,</span> <span class="s s-Atom">cracker</span><span class="p">).</span>
+<span class="nf">food_type</span><span class="p">(</span><span class="s s-Atom">spam</span><span class="p">,</span> <span class="s s-Atom">meat</span><span class="p">).</span>
+<span class="nf">food_type</span><span class="p">(</span><span class="s s-Atom">sausage</span><span class="p">,</span> <span class="s s-Atom">meat</span><span class="p">).</span>
+<span class="nf">food_type</span><span class="p">(</span><span class="s s-Atom">jolt</span><span class="p">,</span> <span class="s s-Atom">sode</span><span class="p">).</span>
+<span class="nf">food_type</span><span class="p">(</span><span class="s s-Atom">twinkie</span><span class="p">,</span> <span class="s s-Atom">dessert</span><span class="p">).</span>
+
+<span class="nf">flavor</span><span class="p">(</span><span class="s s-Atom">sweet</span><span class="p">,</span> <span class="s s-Atom">dessert</span><span class="p">).</span>
+<span class="nf">flavor</span><span class="p">(</span><span class="s s-Atom">savory</span><span class="p">,</span> <span class="s s-Atom">meat</span><span class="p">).</span>
+<span class="nf">flavor</span><span class="p">(</span><span class="s s-Atom">savory</span><span class="p">,</span> <span class="s s-Atom">cheese</span><span class="p">).</span>
+<span class="nf">flavor</span><span class="p">(</span><span class="s s-Atom">sweet</span><span class="p">,</span> <span class="s s-Atom">soda</span><span class="p">).</span>
+
+<span class="nf">food_flavor</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">food_type</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Z</span><span class="p">),</span> <span class="nf">flavor</span><span class="p">(</span><span class="nv">Y</span><span class="p">,</span> <span class="nv">Z</span><span class="p">).</span>
+</pre></div>

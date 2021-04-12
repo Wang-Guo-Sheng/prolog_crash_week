@@ -10,4 +10,4 @@ flavor(savory, meat).
 flavor(savory, cheese).
 flavor(sweet, soda).
 
-food_falvor(X, Y) :- food_type(X, Z), flavor(Y, Z).
+food_flavor(X, Y) :- food_type(X, Z), flavor(Y, Z).
