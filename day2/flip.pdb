@@ -1,0 +1,4 @@
+flip([], []).
+flip([A|[B|[]]], [B|[A|[]]]).
+flip([H|T], [FT|H]) :- flip(T, FT).
+

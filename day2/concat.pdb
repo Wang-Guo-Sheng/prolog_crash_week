@@ -1,0 +1,4 @@
+concat([], List, List).
+concat([Head|[]], List, [Head|List]).
+% concat([A|[B|[]]], List, [A|[B|List]]).
+concat([A|B], C, [A|D]) :- concat(B, C, D).

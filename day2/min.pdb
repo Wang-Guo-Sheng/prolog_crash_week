@@ -1,0 +1,6 @@
+min(false, []).
+min(A, [A]).
+min(A, [A, B]) :- B >= A.
+min(B, [A, B]) :- A >= B.
+% min(A, List) :- B >= A, min(B, List).
+

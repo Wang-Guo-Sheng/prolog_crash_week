@@ -1,0 +1,6 @@
+father(zeb, jbs).
+father(jbs, jbj).
+
+ancestor(X, Y) :- father(X, Y).
+ancestor(X, Y) :- father(X, Z), ancestor(Z, Y).
+

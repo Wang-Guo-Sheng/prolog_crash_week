@@ -1,0 +1,2 @@
+list_min(X, [X]).
+list_min(X, [H|T]) :- X =< H, X =< Y, list_min(Y, T).
