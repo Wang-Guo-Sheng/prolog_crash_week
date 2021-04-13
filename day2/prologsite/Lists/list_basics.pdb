@@ -1,0 +1,64 @@
+%% 1.01
+my_last(X, [X]).
+% my_last(X, [_|[X|]]).
+my_last(X, [_|Tail]) :- my_last(X, Tail).
+
+%% 1.02
+last_but_one(X, [X, _]).
+last_but_one(X, [_|Tail]) :- last_but_one(X, Tail).
+
+%% 1.03
+element_at(X, [X|_], 1).
+% element_at(X, [_[X,|_]], 2).
+element_at(X, [_|Tail], K) :- K1 is K - 1, element_at(X, Tail, K1).
+% Have to assign K - 1 to K1 instead of putting K - 1 in the parentheses of the last subgoal.
+
+%% 1.04
+len(0, []).
+len(1, [_]).
+len(L, [_|T]) :- len(L1, T), L is L1 + 1. % define an induction rule. Plus one clause should be the last subgoal.
+
+%% 1.05 (built-in: `reverse`)
+%my_reverse([], []).
+%my_reverse([_], [_]).
+%my_reverse([A, B], [B, A]).
+%my_reverse([H|Tail], List) :- H = my_last(List), .
+% Must use an auxillary rule.
+my_reverse(A, B) :- my_reverse_aux(A, B, []). % using an auxillary list C = [].
+% Order matters.
+my_reverse_aux([], B, B) :- !. % until C => A while A => [], return true if C = B.
+my_reverse_aux([Head|Tail], B, C) :- my_reverse_aux(Tail, B, [Head|C]). % in each step, take the first of A to the head of C.
+% During the recursion C becomes reversal of A.
+
+%% 1.06
+palindrome(List) :- my_reverse(List, List).
+
+%% 1.07 built-in rule: `flatten`
+% Hint: Use the predefined predicates is_list/1 and append/3
+% Usage: append(List1, List2, List12)
+% Nested -> Flattened
+%
+% Divide the problem into subgoals, append other subgoals to make them consistent, then find the basic conditions to be the start of the recursion.
+%
+% By matching first element, divide the problem into two subgoals.
+my_flatten(X, [X]) :- \+ is_list(X).
+my_flatten([], []).
+my_flatten([X|Xs], Zs) :- my_flatten(X, Y), my_flatten(Xs, Ys), append(Y, Ys, Zs). % flattened list should be concatenation of flattened list of first sublist and the flattened list of trailing lists.
+
+%% 1.08 (Compress consecutive repeating elements)
+%
+%Step2: Find recursion start points.
+compress([], []).
+compress([X], [X]). % Have to use X instead of _, otherwise can't retrieve last element of the list.
+
+% Step1: Match the list in the [Head|Tail] approach, find recursion equations for both cases.
+compress([H, H|T], C) :- compress([H|T], C).
+compress([X, Y|T], [X|Z]) :- X \= Y, compress([Y|T], Z).
+
+%% 1.09  Pack consecutive duplicates of list elements into sublists.
+%
+%pack([H|T], [HP|TP]) :- pack(T, P).
+
+%transfer(
+
+
